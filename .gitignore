@@ -1,0 +1,23 @@
+# Compiled binary
+target/
+
+# Cargo.lock file for libraries
+Cargo.lock
+
+# Rust build artifacts
+*.rs.bk
+*.rlib
+*.d
+*.o
+*.so
+*.a
+*.dll
+*.exe
+*.app
+
+# Personal stuff 
+*.html
+
+
+# Backup files
+*~
