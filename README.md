@@ -53,6 +53,7 @@ I want to use my knowledge of Stochastic Processes and Rust to make a perdictive
 5. **Backtesting and Evaluation**
    - Compare the predicted prices with actual future prices (if available) to evaluate the model's accuracy.  
    - Use metrics such as Mean Absolute Error (MAE) or Root Mean Squared Error (RMSE) to quantify prediction performance.  
+   - Would a Monte-Carlo Simulation be a good way to test the model? 
 
 ### Things that I need to learn 
 

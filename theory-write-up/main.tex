@@ -71,10 +71,11 @@ To further enhance the accuracy of $\mu$ and $\sigma$ the computation will emplo
 \section{Volatility Calculation}
 An Exponential Moving Variance is defined as the following
 \begin{align}
-	EMV_t = \alpha \cdot \left( X_t - EMA_t \right)^2 + (1 - \alpha) \cdot EMV_{t-1}
+	EMV_t = \alpha \cdot \left( R_t - EMA_t \right)^2 + (1 - \alpha) \cdot EMV_{t-1}
 \end{align}
 % should i desc all vars here 
-where $X_t$ is the current observation.
+% Think X_t should be R_t
+where $R_t$ is the current return.
 \bibliographystyle{alpha}
 \bibliography{sample}
 
