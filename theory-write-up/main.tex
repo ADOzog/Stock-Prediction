@@ -1,0 +1,81 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Implementation of Geometric Brownian Motion}
+\author{Anthony Ozog}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Geometric Brownian Motion is a specific stochastic process often used in financial modeling, particularly for stock prices. The expected returns of Geometric Brownian Motion are independent of the current values of the stock and GBM only takes positive values. These are both reasons why GMB is commonly used to model the price of a stock. When implementing GBM there are few key steps and assumption one must make and use in any particular case. The assumption I use and the methods I implement will be documented in this paper so that anyone with an understanding of finance can also have an understanding of the software I am writing to model the prices of stocks.
+\end{abstract}
+
+\section{Definition and Properties of Geometric Brownian Motion}
+A stochastic process is said to be a GBM if it satisfies the following equation
+
+\begin{align}
+	dS_t = \mu S_t dt + \sigma S_tdW_t.
+\end{align}
+Where
+
+\begin{description}
+	\item[$S_t$] is a stochastic process,
+	\item[$W_t$] is a Brownian motion,
+	\item[$\mu$] is the percentage drift,
+	\item[$\sigma$] is the percentage volatility.
+\end{description}
+\noindent
+{\bf Remark.} $\mu$ and $\sigma$ are constants within this defintion.\\
+
+\noindent
+$S_t$ at any time $t$ is a log-normal randomn variable with the follwoing properties, 
+
+\begin{align}
+	&E(S_t) = S_0e^{\mu t},\\
+	&Var(S_t = S_0^2e^{2\mu t}\left (e^{\sigma^2 t} - 1 \right),\\
+	&f_{S_t}(s; \mu, \sigma, t) = \frac{1}{\sqrt{2\pi}} \frac{1}{s\sigma \sqrt t}exp\left( -\frac{(lns-ln S_0 - (\mu  - \frac{1}{2} \sigma^2 )t)^2}{2\sigma^2 t} \right)
+\end{align}
+\noindent
+Where $f_{S_t}(s; \mu, \sigma, t)$ denote the PDF of a random variable $S_t$ (the stock price at time $t$), evaluated at $s$.
+
+
+\section{Drift Calculation}
+As mentioned previously, $\mu$ and $\sigma$ are constants in Geometric Brownian Motion; however, this fact can lead to unfavorable results since the model is not being updated with new data and the drift ($\mu$) and volatily ($\sigma$) of the market are not constant. To overcome this downside $\mu$ and $\sigma$ will be recomputed after the market closes each day.\\
+\noindent
+%% EMA
+To further enhance the accuracy of $\mu$ and $\sigma$ the computation will employ an Exponential Moving Average (EMA) increase the weight of current events. An EMA is defined as the following
+
+\begin{align}
+	EMA_t &= \alpha \cdot R_t + (1 - \alpha) \cdot EMA_{t-1},\\
+	EMA_1 &= R_1
+\end{align}
+ where $\alpha  = \frac{2}{N + 1}$ (N is the number of periods) and $R_t$ (the returns) is defined as 
+\begin{align}
+	R_t = \frac{P_t}{P_{t-1}} - 1
+\end{align}
+
+\section{Volatility Calculation}
+An Exponential Moving Variance is defined as the following
+\begin{align}
+	EMV_t = \alpha \cdot \left( X_t - EMA_t \right)^2 + (1 - \alpha) \cdot EMV_{t-1}
+\end{align}
+% should i desc all vars here 
+where $X_t$ is the current observation.
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}

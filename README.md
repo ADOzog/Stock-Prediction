@@ -64,7 +64,6 @@ I want to use my knowledge of Stochastic Processes and Rust to make a perdictive
 
 3. What makes good backtests, how much testing is needed, and how long does the testing need?  
 
-4. What optomiztion approches can I use here? 
 
 #### Ideas to come back to 
 
@@ -82,9 +81,6 @@ I want to use my knowledge of Stochastic Processes and Rust to make a perdictive
 
 - diffusionx
     - This will do the heavy lifting for the GBM
-
-- reqwest
-    - To fetch financial data from Yahoo Finance.
 
 - serde
     - To parse the API data
