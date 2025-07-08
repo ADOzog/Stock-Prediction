@@ -1,12 +1,12 @@
 # Overview
-I want to use my knowledge of Stochastic Processes and Rust to make a perdictive model for pricing stocks.  
+I want to use my knowledge of Stochastic Processes and Rust to make a predictive model for pricing stocks.  
 
 
 ### Implementation Steps
 
 1. **Data Handling**
    - Use API calls to fetch historical stock data and real time data.
-   - Imlpement a database to ease this process.
+   - Implement a database to ease this process.
       - Need to understand which is best for this and learn how it works too. 
 
 2. **Model Development**
@@ -15,7 +15,7 @@ I want to use my knowledge of Stochastic Processes and Rust to make a perdictive
       - I have much to understand for this step.
 
 3. **Testing and Validation**
-   - Test the model with different stocks and timeframes to ensure robustness.
+   - Test the model with different stocks and time frames to ensure robustness.
    - Validate the model's predictions against actual market data.
       - This can be done with historic data rapidly or real time data slowly.
 
@@ -57,8 +57,8 @@ I want to use my knowledge of Stochastic Processes and Rust to make a perdictive
 
 ### Things that I need to learn 
 
-1. How are $ \mu $ and $ \sigma $ found? And what are the best approches to find them?  
-    - This appears to be the most importent part of the whole project.
+1. How are $ \mu $ and $ \sigma $ found? And what are the best approaches to find them?  
+    - This appears to be the most important part of the whole project.
 
 2. What is the best place to get financial data? Are the ones I have listed good enough?  
     - Yahoo Finance seems to be good enough

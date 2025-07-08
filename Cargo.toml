@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 diffusionx = "0.4.6"
+plotters = "0.3.7"
 time = "0.3.41"
 tokio-test = "0.4.4"
 yahoo_finance_api = "4.0.0"
