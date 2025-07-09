@@ -61,13 +61,13 @@ fn main() {
 
     let gbm = GeometricBm::new(start_pos, mu, sigma).expect("This should never happen");
 
+    let base_title: String = String::from("Geometric Brownian Motion Simulation for ");
+    let full_title: String = base_title.chars().chain(stock.chars()).collect();
+
     let root = BitMapBackend::new("GMB.png", (1080, 640)).into_drawing_area();
     root.fill(&WHITE).expect("stop it");
     let mut chart = ChartBuilder::on(&root)
-        .caption(
-            "Geometric Brownian Motion Simulation",
-            ("sans-serif", 40).into_font(),
-        )
+        .caption(full_title, ("sans-serif", 40).into_font())
         .margin(12)
         .x_label_area_size(35)
         .y_label_area_size(35)
@@ -84,7 +84,7 @@ fn main() {
     // The number of loops controls the number of realizations
 
     // I want to add an average line and a no change line
-    for _ in 0..10 {
+    for _ in 0..100 {
         let (x, t) = gbm.simulate(200.0, 1.0).unwrap();
         let points: Vec<(f64, f64)> = x
             .iter()

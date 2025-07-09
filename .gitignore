@@ -17,6 +17,7 @@ Cargo.lock
 
 # Personal stuff 
 *.html
+*.png
 
 
 # Backup files

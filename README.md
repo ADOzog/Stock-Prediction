@@ -36,7 +36,7 @@ I want to use my knowledge of Stochastic Processes and Rust to make a predictive
 
 2. **Data Collection**
    - Gather historical stock price data for the chosen stock or index. This data can be obtained from financial APIs (Yahoo Finance).
-   - Ensure the data includes timestamps, opening prices, closing prices, high and low prices, and volume.
+   - Ensure the data includes timestamps, opening prices, closing prices, high, and low prices, and volume.
    - The crate I found already implements most of this.
 
 3. **Model Implementation**
@@ -69,9 +69,8 @@ I want to use my knowledge of Stochastic Processes and Rust to make a predictive
 #### Ideas to come back to 
 
 1. Exponential moving average gives more weight to recent observations, making it more responsive to new information. The formula for calculating the EMA is: EMA_t=α⋅R_t + (1−α)⋅EMA_{t−1} Where α is the smoothing factor (between 0 and 1) that determines the weight given to the most recent return.
-    - Some form of moving window can also be used to keep the data more relavant.
+    - Some form of moving window can also be used to keep the data more relevant.
 
-2. Do I want to use GMB or a different optimization approach?
 
 3. Embeddings for news documents or RAG to summerize them
     - There is support for news in the yahoo API crate and I just have to figure out how to use it. The embedding vector could be some kind of input to an optomiztion/prediction model.
@@ -90,5 +89,5 @@ I want to use my knowledge of Stochastic Processes and Rust to make a predictive
     - Linear Algebra management 
 
 - yahoo_finance_api
-    - To do al lthe calls to Yahho Finance, its already implemented
+    - To do all the calls to Yahoo Finance, its already implemented
 

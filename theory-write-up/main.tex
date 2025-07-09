@@ -54,7 +54,7 @@ Where $f_{S_t}(s; \mu, \sigma, t)$ denote the PDF of a random variable $S_t$ (th
 
 
 \section{Drift Calculation}
-As mentioned previously, $\mu$ and $\sigma$ are constants in Geometric Brownian Motion; however, this fact can lead to unfavorable results since the model is not being updated with new data and the drift ($\mu$) and volatily ($\sigma$) of the market are not constant. To overcome this downside $\mu$ and $\sigma$ will be recomputed after the market closes each day.\\
+As mentioned previously, $\mu$ and $\sigma$ are constants in Geometric Brownian Motion; however, this fact can lead to unfavorable results since the model is not being updated with new data and the drift ($\mu$) and volatility ($\sigma$) of the market are not constant. To overcome this downside $\mu$ and $\sigma$ will be recomputed after the market closes each day.\\
 \noindent
 %% EMA
 To further enhance the accuracy of $\mu$ and $\sigma$ the computation will employ an Exponential Moving Average (EMA) increase the weight of current events. An EMA is defined as the following
@@ -65,7 +65,7 @@ To further enhance the accuracy of $\mu$ and $\sigma$ the computation will emplo
 \end{align}
  where $\alpha  = \frac{2}{N + 1}$ (N is the number of periods) and $R_t$ (the returns) is defined as 
 \begin{align}
-	R_t = \frac{P_t}{P_{t-1}} - 1
+  R_t = \ln\left(\frac{P_t}{P_{t-1}}\right)
 \end{align}
 
 \section{Volatility Calculation}
@@ -76,6 +76,12 @@ An Exponential Moving Variance is defined as the following
 % should i desc all vars here 
 % Think X_t should be R_t
 where $R_t$ is the current return.
+
+
+
+
+
+
 \bibliographystyle{alpha}
 \bibliography{sample}
 
